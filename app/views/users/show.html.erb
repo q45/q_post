@@ -1,0 +1,17 @@
+<h1>Here are all the users</h1>
+<br>
+<p>
+	<%= @user.username %> with id of <%= @user.id %>
+</p>
+<p>
+	<%= @user.posts.first.title %><br>
+	<%= @user.posts.first.description %>
+</p>
+
+
+<% @user.comments.each do |comment| %>
+	<p><%= comment.body %></p>
+<% end%>
+<br>
+
+
