@@ -1,7 +1,10 @@
 <% if @post.errors.any? %>
-	<% @post.errors.full_messages.each do |msg| %>
-		<%= msg %>
-	<% end %>
+<div class="alert alert<%= "name" == :notice ? "success" :"error"%>">
+<a class="close" data-dismiss="alert">&#215;</a>
+		<% @post.errors.full_messages.each do |msg| %>
+			<%= msg %>
+		<% end %>
+</div>
 <% end %>
 
 <%= form_for(@post) do |f| %>

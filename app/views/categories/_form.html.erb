@@ -1,0 +1,16 @@
+<% if @category.errors.any? %>
+<div class="alert alert<%= "name" == :notice ? "success" :"error"%>">
+<a class="close" data-dismiss="alert">&#215;</a>
+		<% @category.errors.full_messages.each do |msg| %>
+			<%= msg %>
+		<% end %>
+</div>
+<% end %>
+
+<%= form_for(@category) do |c| %>
+	<%= c.label :name %>
+	<%= c.text_field :name %>
+	<br>
+	<%= c.submit class: "btn btn-primary"%>
+
+<% end %>
