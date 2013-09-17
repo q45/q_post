@@ -22,3 +22,10 @@
 	<%= f.submit class: "btn btn-primary btn-large"  %>
 
 <% end %>
+
+<%= form_tag '/posts' do %>
+	<%= label_tag :olo %>
+	<%= text_field_tag :olo %>
+	<br>
+	<%= submit_tag :submit %>
+<% end %>
