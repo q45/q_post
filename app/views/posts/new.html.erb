@@ -1,15 +1,7 @@
-<%= form_for(@post) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<br>
-
-	<%= f.label :url %>
-	<%= f.text_field :url %>
-	<br>
-
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-	<br>
-	<%= f.submit  %>
-
+<h2>Create a new Post</h2>
+<% if @post.errors.any? %>
+	<% @post.errors.full_messages.each do |msg| %>
+		<%= msg %>
+	<% end %>
 <% end %>
+<%= render 'form' %>

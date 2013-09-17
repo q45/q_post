@@ -8,11 +8,20 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.create
+  	@post = Post.new(post_params)
+
+    if @post.save
+      flash[:notice] = "you created a post"
+      redirect_to root_path
+    else
+     
+      render :new
+    end
+
   end
 
   def show
-  	@post = Post.find_by(params[:id])
+  	@post = Post.find(params[:id])
   end
 
   def edit
@@ -28,6 +37,10 @@ class PostsController < ApplicationController
   end
 
   private 
+
+  def post_params
+    params.require(:post).permit!
+  end
 
   
 end
