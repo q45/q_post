@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-
+    @post = Post.all
   end
 
   def new
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.new
+  	@post = Post.create
   end
 
   def show
@@ -26,4 +26,8 @@ class PostsController < ApplicationController
   def destroy
   	@post = Post.find_by(params[:id])
   end
+
+  private 
+
+  
 end
