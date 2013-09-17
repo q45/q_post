@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       flash[:notice] = "you created a post"
       redirect_to root_path
     else
-     
+
       render :new
     end
 
@@ -29,7 +29,14 @@ class PostsController < ApplicationController
   end
 
   def update
-  	@post = Post.find_by(params[:id])
+  	@post = Post.find(params[:id])
+
+    if @post.save
+      flash[:notice] = "Updated Successfully"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
