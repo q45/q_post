@@ -8,13 +8,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
   	@post = Post.new(post_params)
 
     if @post.save
       flash[:notice] = "you created a post"
       redirect_to root_path
     else
-
       render :new
     end
 
@@ -31,11 +31,11 @@ class PostsController < ApplicationController
   def update
   	@post = Post.find(params[:id])
 
-    if @post.save
+    if @post.update(post_params)
       flash[:notice] = "Updated Successfully"
       redirect_to root_path
     else
-      render :new
+      render :edit
     end
   end
 
