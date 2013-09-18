@@ -1,11 +1,4 @@
-<% if @post.errors.any? %>
-<div class="alert alert<%= "name" == :notice ? "success" :"error"%>">
-<a class="close" data-dismiss="alert">&#215;</a>
-		<% @post.errors.full_messages.each do |msg| %>
-			<%= msg %>
-		<% end %>
-</div>
-<% end %>
+<%= render 'shared/errors', obj: @post %>
 
 <%= form_for(@post) do |f| %>
 	<%= f.label :title %>
