@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   def create
     #binding pry
   	@post = Post.new(post_params)
+    @post.user = User.find(1)
 
     if @post.save
       flash[:notice] = "you created a post"
