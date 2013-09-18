@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update]
+  #1.set up a variable
+  #2. prevents execution of the action
+
   def index
     @post = Post.all
     @category = Category.all
@@ -9,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    #binding pry
   	@post = Post.new(post_params)
 
     if @post.save
@@ -22,16 +27,15 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@post = Post.find(params[:id])
+  	
   end
 
   def edit
-  	@post = Post.find_by(params[:id])
+  	
   end
 
   def update
-  	@post = Post.find(params[:id])
-
+  	
     if @post.save
       flash[:notice] = "Updated Successfully"
       redirect_to root_path
@@ -46,8 +50,12 @@ class PostsController < ApplicationController
 
   private 
 
+  def set_post
+    @post = Post.find_by(params[:id])
+  end
+
   def post_params
-    params.require(:post).permit!
+    params.require(:post).permit(:title, :url, :description, :category_ids)
   end
 
   
