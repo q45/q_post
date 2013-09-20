@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
 def show
-	@comment = Comment.find(:id)
+	@comment = Comment.new
 end
 
 end
