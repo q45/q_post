@@ -3,9 +3,11 @@ Post: <%= link_to @post.title, fix_url(@post.url) %>
 
 <h3>Comments</h3>
 
+<%= render 'shared/errors', obj: @comment %>
+
 <%= form_for [@post, @comment] do |f| %>
 	<%= f.label :body, "Leave a Comment" %>
-	<%= f.text_area :body %>
+	<%= f.text_area :body, rows: 5 %>
 	<br>
 	<%= f.submit "Create Comment", class: "btn btn-primary" %>
 <% end %>
