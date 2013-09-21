@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
+  before_action :require_user, only: [:new, :create, :edit, :update]
   #1.set up a variable
   #2. prevents execution of the action
 
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
   def create
     #binding pry
   	@post = Post.new(post_params)
-    @post.user = User.find(1)
+    @post.user = current_user
 
     if @post.save
       flash[:notice] = "you created a post"

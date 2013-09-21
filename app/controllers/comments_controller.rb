@@ -7,7 +7,7 @@ def create
 
 	@comment = @post.comments.build(comment_params) #build is the same thing as new
 
-	@comment.user_id = 1
+	@comment.user_id = current_user
 
 	if @comment.save
 		flash[:notice] = "Your comment was saved"
