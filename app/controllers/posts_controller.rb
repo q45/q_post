@@ -53,14 +53,21 @@ class PostsController < ApplicationController
 
   def vote
     vote  = Vote.create(voteable: @post, user: current_user, vote: params[:vote])
-    flash[:notice] = "#{vote.user.username} Thank you for your vote"
-    redirect_to root_path
+  
+    respond_to do |format|
+      format.html do
+        flash[:notice] =  "Your vote was counted"
+        redirect_to root_path
+      end
+        format.js
+    end
+
   end
 
   private 
 
     def set_post
-      @post = Post.find_by(params[:id])
+      @post = Post.find(params[:id])
     end
 
     def post_params
