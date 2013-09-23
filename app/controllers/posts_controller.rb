@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
-  before_action :require_user, only: [:new, :create, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
+  before_action :require_user, only: [:new, :create, :edit, :update, :vote]
   #1.set up a variable
   #2. prevents execution of the action
 
@@ -52,7 +52,9 @@ class PostsController < ApplicationController
   end
 
   def vote
-    
+    Vote.create(voteable: @post, user: current_user, vote: params[:vote])
+    flash[:notice] = "Thank you for your vote"
+    redirect_to root_path
   end
 
   private 
