@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
-    @category = Category.all
+       
   end
 
   def new
@@ -52,20 +52,20 @@ class PostsController < ApplicationController
   end
 
   def vote
-    Vote.create(voteable: @post, user: current_user, vote: params[:vote])
-    flash[:notice] = "Thank you for your vote"
+    vote  = Vote.create(voteable: @post, user: current_user, vote: params[:vote])
+    flash[:notice] = "#{vote.user.username} Thank you for your vote"
     redirect_to root_path
   end
 
   private 
 
-  def set_post
-    @post = Post.find_by(params[:id])
-  end
+    def set_post
+      @post = Post.find_by(params[:id])
+    end
 
-  def post_params
-    params.require(:post).permit(:title, :url, :description, :category_ids)
-  end
+    def post_params
+      params.require(:post).permit(:title, :url, :description, :category_ids)
+    end
 
   
 end
