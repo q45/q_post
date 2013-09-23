@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
 		if @user.save
 				flash[:notice] = "You are registered"
+				redirect_to root_path
 		else
-			redirect_to root_path
+			render :new
 		end
 	end
 

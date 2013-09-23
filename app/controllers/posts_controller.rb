@@ -51,6 +51,10 @@ class PostsController < ApplicationController
   	@post = Post.find_by(params[:id])
   end
 
+  def vote
+    
+  end
+
   private 
 
   def set_post
