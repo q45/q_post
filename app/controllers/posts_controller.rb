@@ -74,15 +74,10 @@ class PostsController < ApplicationController
 
   private 
 
-<<<<<<< HEAD
-  def set_post
-    @post = Post.find(params[:id])
-  end
-=======
     def set_post
       @post = Post.find_by(slug: params[:id])
     end
->>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
+
 
     def post_params
       params.require(:post).permit(:title, :url, :description, :category_ids)
