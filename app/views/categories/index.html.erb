@@ -1,1 +1,9 @@
 <h1>Categories index page here</h1>
+
+<% @categories.each do |c| %>
+	<ul>
+		<li>
+			<%= c.name %>
+		</li>
+	</ul>
+<% end %>

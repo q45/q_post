@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    #binding pry
+    
   	@post = Post.new(post_params)
     @post.user = current_user
 
@@ -34,6 +34,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+
   	
   end
 
@@ -60,7 +61,7 @@ class PostsController < ApplicationController
   private 
 
   def set_post
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def post_params

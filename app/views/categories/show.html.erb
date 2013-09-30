@@ -1,5 +1,15 @@
-<h2>Categories</h2>
+<div class="span12">
+	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%= @show_category.name %></p>
+</div>
 
-<% @categories.each do |category| %>
-	<p><%=category.name %></p>
+
+<% @show_category.posts.each do |c| %>
+	<ul>
+		<li><%= c.title %></li>
+	</ul>
+	<p><%= @post.title %></p>
+	<p><%= @post.description %></p>
 <% end %>
+
+
+
