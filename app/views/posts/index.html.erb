@@ -7,19 +7,33 @@
 <ul>
 <% @post.each do |post| %>
 	<li>
+<<<<<<< HEAD
 	<%= link_to '+', vote_post_path(post, vote: true), method: :post if logged_in? %>
 	[<%= post.total_votes %>]
 	<%= link_to '-', vote_post_path(post, vote: false), method: :post if logged_in? %>
 	
 	<%= link_to post.title, post_path(post) %> ( <%= link_to 'Edit', edit_post_path(post) %> )
+=======
+	<%= link_to '+', vote_post_path(post, vote: true), method: :post, remote: true if logged_in? %>
+	<span id="post_<%=post.slug%>_votes">[<%= post.total_votes %>]</span>
+	<%= link_to '-', vote_post_path(post, vote: false), method: :post, remote: true if logged_in? %>
+	|
+	<%= link_to post.title, post_path(post) %> ( <%= link_to 'Edit', edit_post_path(post)%> )
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
 	posted by <%= post.user.username %> on <%= date_format(post.user.created_at) %>
+
+	<% post.categories.each do |c| %>
+		<%= link_to c.name, category_path(c) %>
+	<% end %>
+	<span id="thanks"></span>
 	</li>
-<% end %>
+
+	<% end %>
+
+
 </ul>
+
+
 
 <h3>Categories</h3>
 <ul>
-<% @category.each do |category| %>
-	<li><%=  category.name %> </li>
-<% end %>
-</ul>

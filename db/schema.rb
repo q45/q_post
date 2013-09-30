@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20130930031752) do
+=======
+ActiveRecord::Schema.define(version: 20130927223418) do
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
 
   create_table "categories", force: true do |t|
     t.datetime "created_at"
@@ -42,12 +46,20 @@ ActiveRecord::Schema.define(version: 20130930031752) do
   end
 
   create_table "posts", force: true do |t|
+<<<<<<< HEAD
     t.string   "url"
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.string  "url"
+    t.string  "title"
+    t.text    "description"
+    t.integer "user_id"
+    t.string  "slug"
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
   end
 
   create_table "users", force: true do |t|
@@ -56,7 +68,11 @@ ActiveRecord::Schema.define(version: 20130930031752) do
     t.string   "username"
     t.string   "password"
     t.string   "password_digest"
+<<<<<<< HEAD
     t.string   "time_zone"
+=======
+    t.string   "role"
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
   end
 
   create_table "votes", force: true do |t|

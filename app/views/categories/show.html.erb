@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="span12">
 	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%= @show_category.name %></p>
 </div>
@@ -12,4 +13,14 @@
 <% end %>
 
 
+=======
+<h2><%= @category.name  %></h2>
+
+<%= @category.posts.each do |post| %>
+	<p>
+		<%= post.description %>
+	</p>
+<% end %>
+
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
 

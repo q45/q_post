@@ -6,7 +6,14 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
-    @category = Category.all
+
+    respond_to do |format|
+      format.html {render :index}
+      format.js {render json: @posts}
+      format.json {render json: @posts}
+      format.xml {render xml: @posts}
+
+    end    
   end
 
   def new
@@ -53,20 +60,33 @@ class PostsController < ApplicationController
   end
 
   def vote
-    Vote.create(voteable: @post, user: current_user, vote: params[:vote])
-    flash[:notice] = "Thank you for your vote"
-    redirect_to root_path
+    vote  = Vote.create(voteable: @post, user: current_user, vote: params[:vote])
+  
+    respond_to do |format|
+      format.html do
+        flash[:notice] =  "Your vote was counted"
+        redirect_to root_path
+      end
+        format.js
+    end
+
   end
 
   private 
 
+<<<<<<< HEAD
   def set_post
     @post = Post.find(params[:id])
   end
+=======
+    def set_post
+      @post = Post.find_by(slug: params[:id])
+    end
+>>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
 
-  def post_params
-    params.require(:post).permit(:title, :url, :description, :category_ids)
-  end
+    def post_params
+      params.require(:post).permit(:title, :url, :description, :category_ids)
+    end
 
   
 end
