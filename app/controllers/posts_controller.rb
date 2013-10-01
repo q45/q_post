@@ -6,9 +6,10 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all
+    @post_size = Post.all.size
 
     respond_to do |format|
-      format.html {render :index}
+      format.html
       format.js {render json: @posts}
       format.json {render json: @posts}
       format.xml {render xml: @posts}
@@ -37,7 +38,12 @@ class PostsController < ApplicationController
 
   def show
     @comment =  Comment.new
-  	
+  	 
+    respond_to do |format|
+      format.html 
+      format.json {render json: @post}
+    end
+
   end
 
   def edit
