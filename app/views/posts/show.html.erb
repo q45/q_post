@@ -1,5 +1,8 @@
 <h3>Show Post</h3>
 Post: <%= link_to @post.title, fix_url(@post.url) %>
+<p>
+	<%= @post.description %>
+</p>
 
 <h3>Comments</h3>
 
@@ -13,6 +16,7 @@ Post: <%= link_to @post.title, fix_url(@post.url) %>
 <% end %>
 
 
+<h4><%= @post.comments.size %>comments</h4>
 <ul>
 	<% @post.comments.each do |comment| %>
 	<li><%= comment.body %></li>
