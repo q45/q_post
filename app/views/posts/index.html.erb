@@ -10,18 +10,16 @@
 	<%= link_to post.title, post_path(post.slug) %> ( <%= link_to 'Edit', edit_post_path(post)%> )
 	posted by <%= post.user.username %> on <%= date_format(post.user.created_at) %>
 
+
 	<% post.categories.each do |c| %>
 		<%= link_to c.name, category_path(c) %>
 	<% end %>
-	<span id="thanks"></span>
+	
+
+	<span id="thanks"></span><br>
+	<%= post.comments.size %> total comments
 	</li>
-
 	<% end %>
-
-
 </ul>
 
 
-
-<h3>Categories</h3>
-<ul>
