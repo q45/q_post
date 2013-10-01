@@ -9,10 +9,13 @@ class PostsController < ApplicationController
     @post_size = Post.all.size
 
     respond_to do |format|
-      format.html
-      format.js {render json: @posts}
-      format.json {render json: @posts}
-      format.xml {render xml: @posts}
+
+
+      format.html {render :index}
+      format.js {render json: @post}
+      format.json {render json: @post}
+      format.xml {render xml: @post}
+
 
     end    
   end
@@ -22,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    #binding pry
+    
   	@post = Post.new(post_params)
     @post.user = current_user
 
@@ -38,15 +41,21 @@ class PostsController < ApplicationController
 
   def show
     @comment =  Comment.new
+<<<<<<< HEAD
   	 
     respond_to do |format|
       format.html 
       format.json {render json: @post}
     end
 
+=======
+    @post = Post.
+  	
+>>>>>>> be4fc2f1bd7c57b576a5e05ad8fcf6fe52a26bb4
   end
 
   def edit
+
   	
   end
 
@@ -83,9 +92,9 @@ class PostsController < ApplicationController
       @post = Post.find_by(slug: params[:id])
     end
 
+
     def post_params
       params.require(:post).permit(:title, :url, :description, :category_ids)
     end
-
-  
-end
+  end
+end  

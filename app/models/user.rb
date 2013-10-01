@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	
 	has_many :posts
 	has_many :comments
 
@@ -7,7 +8,9 @@ class User < ActiveRecord::Base
 	validates :username, presence: true, uniqueness: true
 	validates :password, presence: true
 
+
 	def admin?
 		role == 'admin'
 	end
+	
 end
