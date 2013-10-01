@@ -6,13 +6,9 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-<<<<<<< HEAD
-		@categories = Category.all
+		@category = Category.all
 		@post = Post.find(params[:id])
 		@show_category = Category.find_by(params[:id])
-=======
-		@category = Category.find(params[:id])
->>>>>>> ffaf6e4b79f08b6df42cba43d67517efef6e214c
 	end
 
 	def new

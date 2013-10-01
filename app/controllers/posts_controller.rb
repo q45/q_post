@@ -9,9 +9,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html {render :index}
-      format.js {render json: @posts}
-      format.json {render json: @posts}
-      format.xml {render xml: @posts}
+      format.js {render json: @post}
+      format.json {render json: @post}
+      format.xml {render xml: @post}
 
     end    
   end
@@ -37,6 +37,7 @@ class PostsController < ApplicationController
 
   def show
     @comment =  Comment.new
+    @post = Post.
   	
   end
 
@@ -82,6 +83,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :url, :description, :category_ids)
     end
-
-  
-end
+  end
+end  
