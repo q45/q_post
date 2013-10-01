@@ -1,6 +1,6 @@
 <h2><%= @category.name  %></h2>
 
-<%= @category.posts.each do |post| %>
+<% @category.posts.each do |post| %>
 	<p>
 		<%= post.description %>
 	</p>
