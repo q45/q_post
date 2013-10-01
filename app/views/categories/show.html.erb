@@ -1,17 +1,17 @@
 
+
+<% @category.posts.each do |post| %>
+	<p>
+		<%= link_to post.title, post_path(post) %><br>
+		<%= post.description %><br>
+		<strong> <%= post.comments.size %> comments</strong>
+	</p>
+
 <div class="span12">
 	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%#= @show_category.name %></p>
 </div>
 
 
-
-
-
-
-
-<%= @category.each do |cat| %>
-	<p><%= cat.name %></p>
-<% end %>
 
 
 

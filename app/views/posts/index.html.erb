@@ -1,9 +1,14 @@
 <h3>Check out these post</h3>
+
+
+<h5><%= @post_size %> posts</h5>
+
 <% if current_user %>
 	<%= current_user.username %>
 <% else %>
 	<%= puts "No one is logges in " %>
 <% end %>
+
 <ul>
 <% @post.each do |post| %>
 	<li>
@@ -22,11 +27,4 @@
 	</li>
 
 	<% end %>
-
-
 </ul>
-
-
-
-<h3>Categories</h3>
-<ul>
