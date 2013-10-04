@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20130930031752) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
 
   create_table "users", force: true do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20130930031752) do
     t.string   "username"
     t.string   "password"
     t.string   "password_digest"
-    t.string   "time_zone"
     t.string   "role"
+    t.string   "time_zone"
   end
 
   create_table "votes", force: true do |t|

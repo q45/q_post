@@ -40,18 +40,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment =  Comment.new
-<<<<<<< HEAD
-  	 
-    respond_to do |format|
-      format.html 
-      format.json {render json: @post}
-    end
-
-=======
-    @post = Post.
-  	
->>>>>>> be4fc2f1bd7c57b576a5e05ad8fcf6fe52a26bb4
+    @comment = Comment.new
   end
 
   def edit
@@ -96,5 +85,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :url, :description, :category_ids)
     end
-  end
+  
 end  
