@@ -1,5 +1,9 @@
-<h2>Category </h2>
 
+<div class="span12">
+	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%= @category.name %></p>
+</div>
+
+<div class="span12">
 <% @category.posts.each do |post| %>
 
 	<p>
@@ -7,12 +11,11 @@
 		<%= post.description %><br>
 		<strong> <%= post.comments.size %> comments</strong>
 	</p>
-
-<div class="span12">
-	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%#= @show_category.name %></p>
+	<% end %>
 </div>
 
-<% end %>
+
+
 
 
 

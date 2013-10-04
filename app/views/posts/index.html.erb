@@ -1,14 +1,15 @@
 <h3>Check out these post</h3>
 
 
-<h5><%= @post_size %> posts</h5>
+<h5><%= @post_size %> total posts</h5>
 
 <% if current_user %>
-	<%= current_user.username %>
+	Hello <%= current_user.username %>
 <% else %>
 	<%= puts "No one is logges in " %>
 <% end %>
 
+<div class="span12">
 <ul>
 <% @post.each do |post| %>
 	<li>
@@ -32,3 +33,4 @@
 	<% end %>
 </ul>
 
+</div>
