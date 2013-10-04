@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def edit
+		@user = User.find(params[:id])
+	end
+
 	def show
 		@user = User.first
 		
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
 	private
 
 		def user_params
-			params.require(:user).permit(:username, :password)
+			params.require(:user).permit(:username, :password, :time_zone)
 		end
 
 end 

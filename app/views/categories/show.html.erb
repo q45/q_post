@@ -1,10 +1,22 @@
-<h2><%= @category.name  %></h2>
 
+<<<<<<< HEAD
 <% @category.posts.each do |post| %>
 	<h3><%= link_to post.title, post_path(post) %></h3>
+=======
+
+<% @category.posts.each do |post| %>
+>>>>>>> 5af550ccdfc6fc46522b11fe2ec1406d30e75e4e
 	<p>
-		<%= post.description %>
+		<%= link_to post.title, post_path(post) %><br>
+		<%= post.description %><br>
+		<strong> <%= post.comments.size %> comments</strong>
 	</p>
-<% end %>
+
+<div class="span12">
+	<p class="lead"><%= link_to "All Posts", posts_path %> >> <%#= @show_category.name %></p>
+</div>
+
+
+
 
 

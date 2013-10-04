@@ -1,10 +1,16 @@
 class CategoriesController < ApplicationController
+	before_action :require_admin
+	
 	def index
 
 	end
 
 	def show
+
 		@category = Category.find(params[:id])
+		@post = Post.find(params[:id])
+		@show_category = Category.find_by(params[:id])
+
 	end
 
 	def new

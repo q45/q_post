@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <h3><%= @post.title %></h3>
 <p>
 	<%= link_to @post.url, fix_url(@post.url) %><br>
+=======
+<h3>Show Post</h3>
+Post: <%= link_to @post.title, fix_url(@post.url) %>
+<p>
+>>>>>>> 5af550ccdfc6fc46522b11fe2ec1406d30e75e4e
 	<%= @post.description %>
 </p>
 
@@ -16,7 +22,11 @@
 <% end %>
 
 
+<<<<<<< HEAD
 <strong><%= @post.comments.count %></strong>
+=======
+<h4><%= @post.comments.size %>comments</h4>
+>>>>>>> 5af550ccdfc6fc46522b11fe2ec1406d30e75e4e
 <ul>
 	<% @post.comments.each do |comment| %>
 	<li><%= comment.body %></li>
